@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.otacom.imei">
+
+    <!-- Camera Features - Your application must also declare use of camera features, for example: -->
+    <!-- If your application can use a camera or camera feature for proper operation, but does not require it, you should specify this in the manifest by including the android:required attribute, and setting it to false: -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- Receive boot status to launch service implicitamente -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Get IMEI -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Camera Permission - Your application must request permission to use a device camera. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Storage Permission - If your application saves images or videos to the device's external storage (SD Card), you must also specify this in the manifest. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Audio Recording Permission - For recording audio with video capture, your application must request the audio capture permission. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- If your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <!-- Location Permission - GPS, CELL(3G) and NETWORK(Wifi) (COARSE só usa GPS hardware) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Verificar conectividade com internet para fazer uploads -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- SignalR -->
+    <!-- To External Database -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ************************************* BADGES ****************************************** -->
+    <!-- Samsung -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+
+    <!-- Sony -->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+
+    <!-- HTC -->
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+    <!-- *********************************** END BADGES **************************************** -->
+
+
+    <!-- Listen Boot to enable Service starts -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
